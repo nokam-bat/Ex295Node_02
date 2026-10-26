@@ -1,0 +1,17 @@
+{
+  "name": "ex295node_02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nokam-bat/Ex295Node_02.git"
+  },
+  "private": true,
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
