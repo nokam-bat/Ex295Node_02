@@ -19,4 +19,6 @@ let activities =
         }
     ];
 
+//export principale de ce fichier, pour rendre accessible aux autres fichiers.
 export {activities};
+// j'aurais pu écrire export default activitites;
