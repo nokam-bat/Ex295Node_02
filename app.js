@@ -1,12 +1,19 @@
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import {activitiesRouter} from './routes/activities.js';
+import {openApiSpecification} from './swagger.js'
+
 const app = express();
 const port = process.env.PORT || 3000;
 
-
-import activitiesRouter from './routes/activities';
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(express.json());
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(openApiSpecification, {explorer:true}));
 
 // Middleware pour frontend
 // C'est pour permettre au front de communiquer avec le back sans faire buger le navigateur web
@@ -30,6 +37,14 @@ app.get('/api/', (req, res) => {
 
 
 app.use('/api/activities', activitiesRouter);
+
+// Fichiers statiques pour Vue
+app.use(express.static(path.join(__dirname, 'dist')));
+
+app.get(/^(?!\/api).*/, (req, res) => {
+    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 
 
 // Si aucune route n'existe, donc si l'utilisateur entre une mauvaise URL

@@ -20,4 +20,4 @@ let activities =
     ];
 
 //export principale de ce fichier, pour rendre accessible aux autres fichiers.
-export default activities;
+export {activities};

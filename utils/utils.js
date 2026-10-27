@@ -18,4 +18,4 @@ const getNewID = activities => {
 
 
 
-export default getNewID;
+export {getNewID};

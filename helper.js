@@ -34,3 +34,4 @@ const checkData = (obj) => {                // pour que les champs soient pas vi
 }
 
 export {isValidId, checkDuration, checkDataNotEmpty, checkData};
+// on est obligé de les mettre dans des accolades car on peut exporter qu'un seul export par défaut par fichier

@@ -1,5 +1,5 @@
 import express from "express";
-import db from "../db/db-activities.js";
+import {db} from "../db/db-activities.js";
 import {isValidId, checkData} from "../helper.js";
 
 // Ici on va gérer les cas d'erreurs avec try, catch et les codes/messages d'erreurs.
@@ -32,7 +32,6 @@ activitiesRouter.get("/:id", async (req, res) => {
         } else{
             res.json({activity})
         }
-        res.json({activities});
     } catch (error) {
         res.status(500).json({error: error.message});
     }
@@ -101,5 +100,6 @@ activitiesRouter.delete("/:id", async (req, res) => {
 });
 
 
-export default activitiesRouter;
-// ou export {activititesRouter}
+
+// export default activitiesRouter;
+export {activitiesRouter}
